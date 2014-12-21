@@ -14,7 +14,7 @@ controversy = downTotal/upTotal;
 controversy = 1/(downTotal/upTotal);
 }
 controversy = Math.round(100*controversy);
-var promotedpercent = Math.round(100*(promoted/itemCount));
+var promotedpercent = Math.round(100*(promotedTotal/itemCount));
 var avgVote = 0;
 var benisTotal = 0;
 benisTotal = upTotal-downTotal;
