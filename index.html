@@ -86,8 +86,7 @@ var tag = gup("tag");
 var url = 'http://www.corsproxy.com/pr0gramm.com/api/items/get?tags=' + tag;  
 source = $.get(url, function(data) {
 	callback = JSON.parse(data);
-	console.log("innerhalb der Funktion");
-	console.log(window.callback);
+	$('#stats').append(generateStats(callback));
 });
 console.log("window.callback" + window.callback)</script>
 
