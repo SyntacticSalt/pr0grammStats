@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>>_ pr0 Tag Statistiken</title>
+<link type="text/css" rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="jsonParse.min.js"></script>
+<script src="stats.js"></script>
+<h1>
+<span>pr0gramm</span> Tag Statistiken
+</h1>
+<h2>
+v. 0.25
+</h2>
+<div id="mid-row">
+<form action="/pr0gramm/" method="get">
+<fieldset>
+<input type="radio" id="tags" class="radio" name="search" value="tags"><label for="tags">Tags</label>
+<input type="radio" id="user" class="radio" name="search" value="user"><label for="user">User</label>
+</fieldset>
+<span id="search_submit">
+<span id="search">
+<input type="text" maxlength="256" name="input" placeholder=" wörk, kevin, kadse, kefer, etc." autocomplete="off">
+<input type="hidden" name="search">
+<span id="tag_container">
+</span>
+</span>
+<span style="float:left">
+<input type="submit" value="Tags suchen">
+</span>
+</span>
+</form>
+</div>
+<script>
+var position=0;
+var top=0;
+var left=0;
+var inputs =  [];
+var counter;
+/*$(window).resize(function(){
+	position = $('#search').position();
+	$('#tag_container span').css("left", position.left + "px");
+	$('#tag_container span').css("top", position.top + "px");
+});/*/
+$(document).ready(function(){
+	pullInput = function(width){
+				tagsWidth;
+				$("#tag_container span").each(function() { tagsWidth += $(this).width();})
+				alert(tagsWidth);
+				var newLeft = tagsWidth - width;
+				alert(newLeft);
+				$("input[type='text']").css("left", newLeft+"px");
+			}
+  $('input[type="text"]').keypress(function(e){
+  		if (e.which == 44)
+      	{
+			if(window.position==0){
+				window.position = $('#search').position();
+				window.top = position.top - 3;
+				window.left = position.left + 3;
+			}
+			var input = $('input[type="text"').val();
+			inputs.push(input);
+			searchbox = $("input[type='text']").position();
+			searchbox.left += 5;
+			tagsWidth=0;
+			$('#tag_container').append("<span class='tag'><span>"+input+"&nbsp;&nbsp;</span><a href='#' title='Removing tag' onClick='$(this).parent().remove();pullInput( $(this).parent().width());alert('tag width' + $(this).parent().width());'>x</a></span>");
+			$("#tag_container span").each(function() { tagsWidth += $(this).width()});
+			$('input[type="hidden"').val($(this).text());
+			var searchbox_newPos = $("#tag_container span").width();
+			$("input[type='text']").css("left", tagsWidth+"px");
+			$('input[type="hidden"').val($('input[type="text"]').val());
+			$('input[type="text"').val("");
+  	    }
+  });
+}); 
+</script>
+<div id="stats"></div> 
+<script>
+function gup( name ) { name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]"); var regexS = "[\\?&]"+name+"=([^&#]*)"; var regex = new RegExp( regexS ); var results = regex.exec( window.location.href ); if( results == null ) return null; else return results[1]; }
+var tag = gup("tag");
+var url = 'http://www.corsproxy.com/pr0gramm.com/api/items/get?tags=' + tag;  
+source = $.get(url, function(data) {
+	callback = JSON.parse(data);
+	console.log("innerhalb der Funktion");
+	console.log(window.callback);
+});
+console.log("window.callback" + window.callback)</script>
+
+<br/><footer>
+<a href="/pr0gramm/technik/">Wie berechnen wir diese Werte?</a>
+</footer>
+</body>
+</html>
