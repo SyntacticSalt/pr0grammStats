@@ -91,6 +91,7 @@ var query = gup("search");
 var url = 'http://www.corsproxy.com/pr0gramm.com/api/items/get?tags=' + query;  
 source = $.get(url, function(data) {
 	callback = JSON.parse(data);
+	alert(callback.items[1].up);
 	$('#stats').append(generateStats(callback));
 });
 </script>
