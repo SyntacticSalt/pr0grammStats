@@ -53,7 +53,7 @@ $(document).ready(function(){
 		alert(newLeft);
 		$("input[type='text']").css("left", newLeft+"px")
 	}
-  	$("input[type='text']").keyup(function(e)
+  	$("input[type='text']").keypress(function(e)
 	{ 
   		if (e.which == 44) // Wenn , (Komma) gedrückt wird
       	{
