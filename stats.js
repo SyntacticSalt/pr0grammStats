@@ -2,12 +2,12 @@ function  generateStats(data){
 var itemCount = data.items.length;
 var upTotal;
 var downTotal;
-window.promoted;
+var promoted;
 for(i=0;i >= itemCount;i++){
 upTotal += data.item[i].up;
 downTotal += data.item[i].down;
 if(data.items[i].promoted != 0){
-	promoted++; 
+	window.promoted++; 
 }
 }
 var controversy = 0;
@@ -17,7 +17,7 @@ controversy = downTotal/upTotal;
 controversy = 1/(downTotal/upTotal);
 }
 controversy = Math.round(100*controversy);
-var promotedpercent = Math.round(100*(promoted/itemCount));
+var promotedpercent = Math.round(100*(window.promoted/itemCount));
 var avgVote = 0;
 var benisTotal = 0;
 benisTotal = upTotal-downTotal;
