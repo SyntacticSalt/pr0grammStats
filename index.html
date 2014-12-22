@@ -55,8 +55,7 @@ $(document).ready(function(){
 	}
   	$("input[type='text']").keyup(function(e)
 	{ 
-		var key= e.charCode || e.keyCode; // e.keyCode als Fallback für Mozilla Firefox
-  		if (key == 44) // Wenn , (Komma) gedrückt wird
+  		if (e.which == 44) // Wenn , (Komma) gedrückt wird
       	{
 			if(window.position==0)
 			{
