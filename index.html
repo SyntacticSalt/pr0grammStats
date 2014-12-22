@@ -19,12 +19,12 @@ v. 0.3
 <div id="mid-row">
 <form action="" method="get">
 <fieldset>
-<input type="radio" id="tags" class="radio" name="search" value="tags" checked><label for="tags">Tags</label>
-<input type="radio" id="user" class="radio" name="search" value="user"><label for="user">User</label>
+<input type="radio" id="tags" class="radio" name="type" value="tags" checked><label for="tags">Tags</label>
+<input type="radio" id="user" class="radio" name="type" value="user"><label for="user">User</label>
 </fieldset>
 <span id="search_submit">
 <span id="search">
-<input type="text" maxlength="256" name="input" placeholder=" wörk, kevin, kadse, kefer, etc." autocomplete="off">
+<input type="text" name="search" maxlength="256" name="input" placeholder=" wörk, kevin, kadse, kefer, etc." autocomplete="off">
 <input type="hidden" name="search">
 <span id="tag_container">
 </span>
@@ -35,7 +35,7 @@ v. 0.3
 </span>
 </form>
 </div>
-<script>
+<!--<script> //Script noch sehr experimentell. Cha0s du kannst mir gerne mit den <span>s um die Tags helfen :)
 var position=0;
 var top=0;
 var left=0;
@@ -55,7 +55,7 @@ $(document).ready(function(){
 	}
   	$("input[type='text']").keypress(function(e)
 	{ 
-  		var key= e.charCode || e.keyCode; // e.keyCode als Fallback für Mozilla Firefox
+		var key= e.charCode || e.keyCode; // e.keyCode als Fallback für Mozilla Firefox
   		if (key == 44) // Wenn , (Komma) gedrückt wird
       	{
 			if(window.position==0)
@@ -81,8 +81,8 @@ $(document).ready(function(){
 			$("input[type='text']").val("");
   	    }
 	});
-}); 
-</script>
+});
+</script>-->
 <div id="stats"></div> 
 <script>
 function gup( name ) { name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]"); var regexS = "[\\?&]"+name+"=([^&#]*)"; var regex = new RegExp( regexS ); var results = regex.exec( window.location.href ); if( results == null ) return null; else return results[1]; }
@@ -92,10 +92,11 @@ source = $.get(url, function(data) {
 	callback = JSON.parse(data);
 	$('#stats').append(generateStats(callback));
 });
-console.log("window.callback" + window.callback)</script>
-
+console.log("window.callback" + window.callback);
+</script>
 <br/><footer>
 <a href="/pr0gramm/technik/">Wie berechnen wir diese Werte?</a>
 </footer>
 </body>
 </html>
+
