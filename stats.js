@@ -7,8 +7,8 @@ source = $.get(url, function(data) {
 	var downTotal;
 	window.promoted;
 	for(i=0;i >= itemCount;i++){
-		upTotal += data.item[i].up;
-		downTotal += data.item[i].down;
+		upTotal += data.items[i].up;
+		downTotal += data.items[i].down;
 		if(data.items[i].promoted != 0){
 			promoted++; 
 		}
@@ -22,7 +22,7 @@ source = $.get(url, function(data) {
 		controversy = 1/(downTotal/upTotal);
 	}
 	controversy = Math.round(100*controversy);
-	var promotedpercent = Math.round(100*(promoted/itemCount));
+	var promotedpercent = Math.round(100*(window.promoted/itemCount));
 	var avgVote = 0;
 	var benisTotal = 0;
 	benisTotal = upTotal-downTotal;
