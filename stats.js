@@ -2,7 +2,7 @@ function  generateStats(data){
 var itemCount = data.items.length;
 var upTotal;
 var downTotal;
-var promoted;
+window.promoted;
 for(i=0;i >= itemCount;i++){
 upTotal += data.item[i].up;
 downTotal += data.item[i].down;
