@@ -4,8 +4,8 @@ var upTotal;
 var downTotal;
 var promoted;
 for(i=0;i >= itemCount;i++){
-upTotal += data.item[i].up;
-downTotal += data.item[i].down;
+upTotal += data.items[i].up;
+downTotal += data.items[i].down;
 if(data.items[i].promoted != 0){
 	window.promoted++; 
 }
