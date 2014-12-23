@@ -27,9 +27,6 @@ v. 0.3
 </fieldset>
 <span id="search_submit">
 <span id="search">
-<script> 
-	$("#tagsinput").tagsInput({});
-</script>
 <input id="tagsinput" name="search" maxlength="256" name="input" autocomplete="off">
 <input type="hidden" name="search">
 </span>
@@ -46,6 +43,9 @@ var query = gup("search");
 generateStats(query);
 </script>
 <br/><footer>
+<script> 
+	$("#tagsinput").tagsInput({});
+</script>
 <a href="/pr0gramm/technik/">Wie berechnen wir diese Werte?</a>
 </footer>
 </body>
