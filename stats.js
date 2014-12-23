@@ -7,9 +7,9 @@ source = $.get(url, function(data) {
 	var downTotal;
 	window.promoted;
 	for(i=0;i >= itemCount;i++){
-		upTotal += data.items[i].up;
-		downTotal += data.items[i].down;
-		if(data.items[i].promoted != 0){
+		upTotal += callback.items[i].up;
+		downTotal += callback.items[i].down;
+		if(callback.items[i].promoted != 0){
 			promoted++; 
 		}
 	}
