@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Technik | PR0GRAMM WebStatistics</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel=
+    'stylesheet' type='text/css'>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <div style="background-color:#212425">
+        <h1><span id="pr0">PR0GRAMM</span><a href=
+        "//knusprigeswuerstchen.github.io/pr0grammStats/">WebStatistics</a>
+        <span>| Technik</span></h1>
+    </div>
+
+    <h2></h2><style>
+article{
+    width: 788px;
+    }
+    article p{
+    text-align: left;
+    color:#fff;
+    font-weight:300;
+    line-height: 1.5em;
+    }
+	em:after{
+content: '\25CF';
+color: #FF9900;
+}
+em{
+	font-weight: 400;
+	font-style:normal;
+}
+#commentbox{
+	width: 788px;
+	background-color: #212425;
+	margin: 0 auto;
+}
+.comment{
+	padding: 10px;
+	text-align:left;
+	margin-left: 0;
+}
+    </style>
+
+    <article style="margin:0 auto">
+        <h1 style="font-size:2em">Was bedeuten die angezeigen Werte?</h1>
+
+        <p><br>
+        <span id='avg'>&empty; 69</span><span>Benis</span><br>
+        <br>
+        Stellt den durchschnittlichen Benis dar, die Posts mit dem gesuchten
+        Tag bekommen haben.<br>
+        (Ich weiß übrigens, dass das kein Durchschnittszeichen sondern das
+        Zeichen für eine leere Menge ist.)</p>
+
+        <p><br>
+        <span id='up' style='color: #4CAF50'>+88</span><span id='down' style=
+        'color:#F44336'>-666</span><br>
+        <br>
+        Stellt in <span style='color: #4CAF50'>grün</span> die gesamten (von
+        uns abgefragten) Upvotes, die Bilder mit dem Tag erhalten haben<br>
+        und in <span style="color:#F44336">rot</span> die Downvotes die Bilder
+        mit dem gesuchten Tag erhalten haben dar.</p>
+
+        <p><br>
+        <span id='controversy' style="font-size:2em">1337%
+        kontrovers</span><br>
+        <br>
+        Stellt die prozentuale Umstrittenheit eines mit dem gesuchten Tag
+        versehenden Posts dar.<br>
+        Die Umstrittenheit errechnet sich aus dem Verhältnis der Up und
+        Downvotes eines Posts (und bald auch aus den erhaltenen
+        Kommentaren),<br>
+        demnach ist ein Post der sowohl viele Upvotes als auch viele Downvotes
+        erhalten hat sehr Kontrovers,<br>
+        während ein Post der nur Up/Downvotes bekommen hat nicht sehr
+        kontrovers.<br>
+        <a href="">Was bedeutet kontrovers?</a></p>
+        
+        <p><br>
+        <span><span style='font-size: 2em;color:#4CAF50'>9999</span>max. Upvotes</span><br><br><span><span style='font-size: 2em;color:#F44336'>1111</span>max. Downvotes</span><br>
+        <br>
+        Stellt die maximalen <span style='color: #4CAF50'>Upvotes</span> und die maximalen <span style="color:#F44336">Downvotes</span> dar,<br> die einer der abgefragten Posts bekommen haben.<br>
+        </p>
+        <br>
+        <br>
+        <h1 style="font-size:2em">Wie fragen wir die Daten ab?</h1>
+        <p>
+        Um die für unsere Auswertung benötigten Daten zu bekommen, 
+        fragen wir die <span style="color: #D23C22">pr0gramm API</span> ab.</p>
+        <br>
+        <h1 style="font-size:1.5em"> Advanced </h1>
+        <br>
+        <p>
+        Damit wir möglichst wenig Server-Ressourcen aufwenden müssen ist die gesamte Abfrage und Auswertung  <span style="color: #D23C22">Client-basiert</span>.<br><br>
+        Da leider Domain-übergreifende XMLhttp GET Anfragen in Javascript durch die <a href="http://en.wikipedia.org/wiki/Same-origin_policy">same origin policy</a> unterbunden werden und die <span style="color: #D23C22">pr0gramm API</span> die <code>Access-Control-Allow-Origin</code>-Ausnahme nicht  in den HTTP-Header eingebunden hat, mussten wir mit einem <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> (Cross-origin resource sharing) Proxy arbeiten <br>(Vielen Dank hier an <a href="//corsproxy.com">CorsProxy</a>). <br><br>Dieser Proxy hat die <code>Alllow Origin</code> Ausnahme gesetzt, leitet die GET-Anfrage weiter und gibt uns das Callback zurück (genauer gesagt gibt der Proxy es eher dem Client zurück, da das Ganze nicht Server-basiert ist).
+        </p>
+        <br>
+        <br>
+	<h1 style="font-size:2em"> WICHTIG</h1>
+    <p>
+    Die <span style="color: #D23C22">pr0gramm API</span> ist <span style="color: #D23C22">UNDOKUMENTIERT</span> und <span style="color: #D23C22">INOFFIELL</span>.
+    <br>
+    <br>
+    Wenn demnach unerwartete Änderungen/Fehler auftreten sollten ist es möglich (wenn wir nicht schon das Internet kaputt gemacht haben) das <em>cha0s </em> irgendwas mit API angestellt und uns damit eventuell ausgesperrt hat.</p>
+    <br>
+    <br>
+    <h1 style="font-size:1.5em;color:#fff"> tl;dr </h1>
+    <br>
+    <p style="text-align:center">
+    Die <span style="color: #D23C22">pr0gramm API</span> ist echt dufte.</p>
+    <br>
+    <br>
+    </article>
+    <div id="commentbox"><span class="comment">Dr. Axel Stoll</span></div>
+</body>
+</html>
