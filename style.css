@@ -10,13 +10,17 @@ h1{
 	margin: 0 auto;
 	font-size: 48px;	
 	text-align: center;
+	font-weight: 300;
+	letter-spacing: 3px;
 }
-span{
+#pr0{
 	color: #fff;
+	font-weight: 600;
+	letter-spacing: 0px;
 }
 #mid-row{
 	margin: 0 auto;
-	width: 640px;
+	width: 788px;
 }
 .tag{
 	margin-left: 3px;
@@ -38,12 +42,10 @@ h2{
 #search{/* contains the searchbox*/
 	float: left;
 	height: 30px;
-	width: 500px;
-	overflow:hidden;
-	height: 30px;
-	width: 500px;
+	width: 650px;
 	background-color: #1B1E1F;
 	border: none;
+	overflow:hidden;
 }
 #search_submit:nth-child(2){/* contains the submit-button*/
 }
@@ -51,10 +53,13 @@ h2{
 	margin:0;
 	left: 0;
 }
+.tagsinput{
+	width: 650px !important;
+}
 #tagsinput{
 	position: relative;
 	height: 30px;
-	width: 500px;
+	width: 650px;
 	color: #bbb;
 	padding-left: 8px;
 	background-color: #1B1E1F;
@@ -68,13 +73,11 @@ h2{
 	color: #D23C22;
 	background-color: #212425;
 }
-#search{
-	background-color: #212425;
-}
 input[type="submit"]{
-	position: absolute;
+	float: right !important;
+	left: 650px;
 	height: 30px;
-	width: 140px;
+	width: 138px;
 	text-align: center;
 	color: #F5F7F6;
 	cursor: pointer;
@@ -95,10 +98,12 @@ input[type="submit"]:hover{
 #up{
 	color: #45D64F;
 	font-size: 3em;
+	padding-right:5px;
 }
 #down{
 	color: #F93838;
 	font-size: 3em;	
+	padding-left:5px;
 }
 #seperator{
 font-size: 3.5em;
@@ -123,7 +128,34 @@ label{
 color:#fff;
 }
 footer{
-	margin-top: 50px;
 	clear: both;
-	
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+#stats{
+	width: 700px;
+	margin: 0 auto;
+	font-weight: 300;
+}
+#statswrapper{
+	width: 100%;
+	top: 30px;
+	position: relative;
+	opacity: 0;
+	background-color: #212425;
+	width: 788px;
+	margin: 0 auto;
+	}
+span{
+	color: #fff;
+}
+a:hover{
+	color: #fff;
+}
+#avgwrapper{
+	display: inline-block;
+	position: absolute;
+	left: 50%;
 }
