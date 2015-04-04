@@ -92,6 +92,9 @@ window.stats = {
 				$("#sfw_bar").css("width", (this.data.sfw/this.data.items_number)*100+"%");
 				$("#nsfw_bar").css("width", (this.data.nsfw/this.data.items_number)*100+"%");
 				$("#nsfl_bar").css("width", (this.data.nsfl/this.data.items_number)*100+"%");
+				$("#sfw_bar").append("<p>"+(this.data.sfw/this.data.items_number)*100+"%<br>SFW</p>");
+				$("#nsfw_bar").append("<p>"+(this.data.nsfw/this.data.items_number)*100+"%<br>NSFW</p>");
+				$("#nsfl_bar").append("<p>"+(this.data.nsfl/this.data.items_number)*100+"%<br>NSFL</p>");
 				width = 0;
 				$(".bar").mouseenter(function(){
 					b = this;
