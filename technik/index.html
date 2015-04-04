@@ -10,16 +10,6 @@
 </head>
 
 <body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-61526388-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <div style="background-color:#212425">
@@ -46,15 +36,11 @@ em{
 	font-weight: 400;
 	font-style:normal;
 }
-#commentbox{
-	width: 788px;
-	background-color: #212425;
-	margin: 0 auto;
-}
-.comment{
-	padding: 10px;
+h2{
+	color: #fff;
+	font-weight: 300;
 	text-align:left;
-	margin-left: 0;
+	font-size: 1.4em;
 }
     </style>
 
@@ -91,14 +77,26 @@ em{
         erhalten hat sehr Kontrovers,<br>
         während ein Post der nur Up/Downvotes bekommen hat nicht sehr
         kontrovers.<br>
-        <a href="">Was bedeutet kontrovers?</a></p>
+		Wir haben uns vorgenommen in Zukunft auch noch die Anzahl der Kommentare in die Analyse mit einzubinden,
+		allerdings würde das die Lade-und Rechenzeit enorm erhöhen.</p><br>
         
         <p><br>
         <span><span style='font-size: 2em;color:#4CAF50'>9999</span>max. Upvotes</span><br><br><span><span style='font-size: 2em;color:#F44336'>1111</span>max. Downvotes</span><br>
         <br>
-        Stellt die maximalen <span style='color: #4CAF50'>Upvotes</span> und die maximalen <span style="color:#F44336">Downvotes</span> dar,<br> die einer der abgefragten Posts bekommen haben.<br>
+        Stellt die maximalen <span style='color: #4CAF50'>Upvotes</span> und die maximalen <span style="color:#F44336">Downvotes</span> dar,<br> die einer der abgefragten Posts bekommen hat.<br>
         </p>
         <br>
+		<br>
+		<p>
+		<h1 style="font-size:2em">Inwiefern beinflusst die Genauigkeit die Analyse?</h1>
+		<br>
+		Je h&ouml;her die Genauigkeit eingestellt ist, desto mehr Posts werden abgefragt und analysiert.
+		Der Standartwert ist 1 (&asymp;120 Posts), der maximal Wert des Sliders 50 (&asymp; 6000 Posts).
+		Manuell kann man diesen Wert allerdings beliebig erhöhen.
+		<br>
+		WICHTIG: Wenn ein Tag beispelweise nur 50mal getagged wurde n&uuml;tzt eine Erh&ouml;hung der Genauigkeit nichts.
+		</p>
+		<br>
         <br>
         <h1 style="font-size:2em">Wie fragen wir die Daten ab?</h1>
         <p>
@@ -109,16 +107,34 @@ em{
         <br>
         <p>
         Damit wir möglichst wenig Server-Ressourcen aufwenden müssen ist die gesamte Abfrage und Auswertung  <span style="color: #D23C22">Client-basiert</span>.<br><br>
-        Da leider Domain-übergreifende XMLhttp GET Anfragen in Javascript durch die <a href="http://en.wikipedia.org/wiki/Same-origin_policy">same origin policy</a> unterbunden werden und die <span style="color: #D23C22">pr0gramm API</span> die <code>Access-Control-Allow-Origin</code>-Ausnahme nicht  in den HTTP-Header eingebunden hat, mussten wir mit einem <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> (Cross-origin resource sharing) Proxy arbeiten <br>(Vielen Dank hier an <a href="//corsproxy.com">CorsProxy</a>). <br><br>Dieser Proxy hat die <code>Alllow Origin</code> Ausnahme gesetzt, leitet die GET-Anfrage weiter und gibt uns das Callback zurück (genauer gesagt gibt der Proxy es eher dem Client zurück, da das Ganze nicht Server-basiert ist).
+        Da leider Domain-übergreifende XMLhttp GET Anfragen (xhr) in Javascript durch die <a href="http://en.wikipedia.org/wiki/Same-origin_policy">same origin policy</a> unterbunden werden und die 
+		<span style="color: #D23C22">pr0gramm API</span> die <code>Access-Control-Allow-Origin</code>-Ausnahme nicht  in den HTTP-Header eingebunden hat, mussten wir mit einem 
+		<a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> (Cross-origin resource sharing) Proxy arbeiten. 
+		<br><br>Dieser Proxy hat die <code>Alllow Origin</code> Ausnahme gesetzt, leitet die GET-Anfrage weiter und gibt uns das Callback zurück 
+		(genauer gesagt gibt der Proxy es eher dem Client zurück, da das Ganze nicht Server-basiert ist).<br>
+		<br>
         </p>
         <br>
         <br>
+    <h1 style="font-size:2em">Sonsiges / FAQ</h1>
+    <h2>Warum finde ich keine NSFW oder NSFL Posts?</h2>
+    <p>
+    <s>Ich arbeite daran ok? Brauche noch circa ne Woche.</s><br>
+    Edit: Ist fertig und funktioniert, nur leider noch etwas hässlich :/
+    </p>
+    <br>
+    <p>Weitere Fragen bitte einfach als private Nachricht <a class="profile" target="_blank" href="//pr0gramm.com/user/knusprigeswuerstchen">@knusprigeswuerstchen</a> schicken</p>
+    <br>
+    <br>
 	<h1 style="font-size:2em"> WICHTIG</h1>
     <p>
-    Die <span style="color: #D23C22">pr0gramm API</span> ist <span style="color: #D23C22">UNDOKUMENTIERT</span> und <span style="color: #D23C22">INOFFIELL</span>.
+    Die <span style="color: #D23C22">pr0gramm API</span> ist <span style="color: #D23C22">UNDOKUMENTIERT</span> und <span style="color: #D23C22">INOFFIZIELL</span>.
     <br>
     <br>
-    Wenn demnach unerwartete Änderungen/Fehler auftreten sollten ist es möglich (wenn wir nicht schon das Internet kaputt gemacht haben) das <em>cha0s </em> irgendwas mit API angestellt und uns damit eventuell ausgesperrt hat.</p>
+    Wenn demnach unerwartete Änderungen/Fehler auftreten sollten ist es möglich, (wenn wir nicht schon das Internet kaputt gemacht haben) dass <em>cha0s </em> irgendwas mit API angestellt und uns damit eventuell ausgesperrt hat.
+    <br><br>
+    Vorschläge und Anregungen, sowie Einladungen nach Aldebaran bitte als private Nachricht an <a class="profile" target="_blank" href="//pr0gramm.com/user/knusprigeswuerstchen">@knusprigeswuerstchen</a> schicken.
+    </p>
     <br>
     <br>
     <h1 style="font-size:1.5em;color:#fff"> tl;dr </h1>
@@ -128,6 +144,25 @@ em{
     <br>
     <br>
     </article>
-    <div id="commentbox"><span class="comment">Dr. Axel Stoll</span></div>
+    <div id="footer">
+    <ul>
+    <li>
+    <a href="/pr0grammStats">PR0GRAMM WebStatistics</a>
+    </li>
+    <li>
+    <a href="/pr0grammStats/Technik">Technik</a>
+    </li>
+    <li>
+    <a target="_blank" href="//pr0gramm.com/user/knusprigeswuerstchen">im pr0gramm</a>
+    </li>
+    <li>
+    <a target="_blank" href="//github.com/knusprigeswuerstchen/pr0grammStats">auf GitHub</a>
+    </li>
+    <li>
+    <a href="/pr0grammStats/about">Über uns</a>
+    </li>
+    </ul>
+    <p> &copy; 2014 by knusprigeswuerstchen </p>
+    </div>
 </body>
 </html>
