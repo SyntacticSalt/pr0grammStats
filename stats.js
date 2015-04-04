@@ -95,18 +95,13 @@ window.stats = {
 				width = 0;
 				$(".bar").hover(function(){
 					a = this;
-					$(".bar").not(a).animate({width: "0"});
-					$(a).animate({width: "100%"});
+					$(".bar").not(a).animate({width: "0"},{queue: false});
+					$(a).animate({width: "100%"},{queue: false});
 					
 				},function(){
-					if($(this).data("flag") == "sfw"){
-						$(this).animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
-					}else if($(this).data("flag") == "nsfw"){
-						$(this).animate({width: (a.data.nsfw/a.data.items_number)*100+"%"},{queue: false});
-					}else if($(this).data("flag") == "nsfl"){
-						$(this).animate({width: (a.data.nsfl/a.data.items_number)*100+"%"},{queue: false});
-					}
-					
+						$("#sfw-bar").animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
+						$("#nsfw-bar").animate({width: (a.data.nsfw/a.data.items_number)*100+"%"},{queue: false});
+						$("#nsfl-bar").animate({width: (a.data.nsfl/a.data.items_number)*100+"%"},{queue: false});
 				});
 				g = new Dygraph(document.getElementById("graph"), this.data.graphData, {
 					showRoller: true,
