@@ -6,28 +6,37 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 <link type="text/css" rel="stylesheet" href="style.css">
 <link rel="stylesheet" type="text/css" href="jquery.tagsinput.css" />
+<link rel="icon" href="WebStatistics favicon_left_big.png"/>
+<link rel="icon" href="WebStatistics favicon_left_small.png"/>
+<link rel="apple-touch-icon" href="WebStatistics favicon_left_big.png" />
 </head>
 
 <body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="jquery.tagsinput.min.js"></script>
 <script src="jsonParse.min.js"></script>
-<script src="stats.js"></script>
-<script src="dygraph-combined.js"></script>
+<script src="stats.oop.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.0/dygraph-combined.js"></script>
+<script src="dragdealer.min.js"></script>
 <div style="background-color:#212425">
 <h1>
 <span id="pr0">PR0GRAMM</span> WebStatistics
 </h1>
 </div>
 <h2>
-v. 0.6
+v0.8.0
 </h2>
 <div id="mid-row">
-<form action="" method="get" >
-<fieldset>
-<input type="radio" id="tags" class="radio" name="type" value="tags" checked><label for="tags">Tags</label>
-<input type="radio" id="user" class="radio" name="type" value="user"><label for="user">User</label>
-</fieldset>
+<form action="" method="get" id="form">
+<div id="filter">
+<input type="hidden" name="sfw" value="0">
+<input type="hidden" name="nsfw" value="0">
+<input type="hidden" name="nsfl" value="0">
+<div class="filter-item" id="sfw"><span>sfw</span></div>
+<div class="filter-item" id="nsfw"><span>nsfw</span></div>
+<div class="filter-item" id="nsfl"><span>nsfl</span></div>
+</div>
+<div id="accuracy"><div style="position:absolute;margin-left:-61px;left:50%;margin-top:4px;color:#666666">Genauigkeit</div><div class="handle"><span class="value"></span></div><input name="accuracy" type="hidden"/></div>
 <span id="search_submit">
 <span id="search">
 <input id="tagsinput" name="search" maxlength="256" name="input" autocomplete="off">
@@ -38,33 +47,73 @@ v. 0.6
 </span>
 </form>
 </div>
-<img id="loading" src="load.svg" width="60px" style="position:absolute;left:50%;margin-left:-30px;padding-top:40px;opacity: 0;">
+<div id="loading">
+<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+</div>
 <div id="statswrapper">
-<div id="stats"></div> 
+<div id="stats">
+</div>
+<div id="imagewrapper">
+</div>
+<div id="flags_diagram">
+<div id="sfw_bar" class="bar" data-flag="sfw" title="Anteil an SFW-Posts"></div>
+<div id="nsfw_bar" class="bar" data-flag="nsfw" title="Anteil an NSFW-Posts"></></div>
+<div id="nsfl_bar" class="bar" data-flag="nsfl" title="Anteil an NSFL-Posts"></></div>
+</div>
 <div id="graph">
 </div>
 </div>
 <script>
-function gup( name ) { name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]"); var regexS = "[\\?&]"+name+"=([^&#]*)"; var regex = new RegExp( regexS ); var results = regex.exec( window.location.href ); if( results == null ) return null; else return results[1]; }
-var query_enc = gup("search");
-if(query_enc != null){
-var query = decodeURIComponent(query_enc);
-query = query.replace(/\+/g, " ");
-$('#tagsinput').val(query);
-if(query){
-$('#loading').animate({
-	opacity: 1
-},100);
-generateStats(query);
-}
-}
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61526388-1', 'auto');
+  ga('send', 'pageview');
+slider = new Dragdealer('accuracy', {
+  animationCallback: function(x, y) {
+	var value = Math.round(1+x * 49)
+    $('#accuracy .value').text(value);
+	$('input[name="accuracy"]').val(value);
+  }
+});
+//filter
+$(".filter-item").click(function(){
+	$(this).toggleClass("filter-active");
+});
+$("#sfw").click(function(){
+	var val = $("input[name='sfw']").val();
+	$("input[name='sfw']").val(val === "0" ? "1" : "0");
+	console.log(val);
+})
+$("#nsfw").click(function(){
+	var val = $("input[name='nsfw']").val();
+	$("input[name='nsfw']").val(val === "0" ? "2" : "0");
+	console.log(val);
+})
+
+$("#nsfl").click(function(){
+	var val = $("input[name='nsfl']").val();
+	$("input[name='nsfl']").val(val === "0" ? "4" : "0");
+	console.log(val);
+})
+
+
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        $("#form").submit();
+    }
+
+});
+stats.convertUrl();
 </script>
 <br/><footer>
 <script> 
 	$("#tagsinput").tagsInput({
 		'height': '30px',
 		'width': '500px',
-		'defaultText': 'Tags eingeben und mit Komma trennen'
+		'defaultText': 'Tag eingeben'
 	});
 </script>
 <a href="technik">Wie berechnen wir diese Werte?</a>
