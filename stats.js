@@ -98,7 +98,7 @@ window.stats = {
 				width = 0;
 				$(".bar").mouseenter(function(){
 					b = this;
-					$(".bar").not(b).animate({width: "0"},{queue: false, duration:500});
+					$(".bar").not(b).animate({width: "0"},{queue: false, duration:600});
 					$(b).animate({width: "100%"},{queue: false, duration:600});
 					$(b).children("p").animate({opacity: 1},{queue: false});
 				});
