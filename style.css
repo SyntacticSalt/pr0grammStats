@@ -18,6 +18,47 @@ h1{
 	font-weight: 600;
 	letter-spacing: 0px;
 }
+#filter{
+	width: 788px;
+	height: 30px;
+	margin: 0 auto;
+	position: relative;
+}
+.filter-item{
+	width: 262.666px;
+	height: 30px;
+	background-color: #1B1E1F;
+	position: relative;
+	float: left;
+	color: #666666;
+	cursor: pointer;
+}
+.filter-item span{
+	top: 4px;
+	color: inherit;
+	position: relative;
+}
+.filter-active{
+	background-color: #ee4d2e !important;
+	color: #fff !important;
+}
+#accuracy{
+	width: 788px;
+	height: 30px;
+	background-color: #212425;
+	color: #fff;
+}
+.handle{
+	width: 50px;
+	height: 30px;
+	background-color: #ee4d2e;
+	cursor: pointer;
+}
+.value{
+	font-weight: 300;
+	position: relative;
+	top: 4px;
+}
 #mid-row{
 	margin: 0 auto;
 	width: 788px;
@@ -123,6 +164,9 @@ cursor:pointer;
 fieldset{
 border:none;
 }
+.filter{
+	padding: 0 5px;
+}
 input[type="radio"]:checked + label { color:#D23C22; }
 label{
 color:#fff;
@@ -134,10 +178,44 @@ footer{
 	margin-top: 100px;
 	margin-bottom: 20px;
 }
+#footer{
+	padding-top: 100px;
+padding-bottom: 100px;
+	background-color: #212425;
+	width: 100%;
+}
+#footer a{
+	color: #fff;
+	font-weight: 300;
+	letter-spacing: 0.3em;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+#footer a:hover{
+	color:#D23C22;
+}
+#footer ul li{
+	list-style-type: none;
+	display: inline;
+}
+#footer p{
+	color: #fff;
+	font-weight: 300;
+	letter-spacing: 0.4em;
+	margin-top: 100px;;
+}
 #stats{
 	width: 700px;
 	margin: 0 auto;
 	font-weight: 300;
+	padding-bottom: 30px;
+}
+#imagewrapper img{
+	width: 128px;
+	padding-left: 13px;
+	padding-right: 13px;
+	clear: both;
+	margin: 0 auto;
 }
 #statswrapper{
 	width: 100%;
@@ -158,4 +236,162 @@ a:hover{
 	display: inline-block;
 	position: absolute;
 	left: 50%;
+}
+.profile{
+	color: #75c0c7;
+	text-decoration: none;
+}
+.profile:hover{
+	color:#fff;
+}
+#flags_diagram{
+	width: 100%;
+	height: 80px;
+	display: inline-block;
+	overflow: hidden;
+}
+#sfw_bar{
+	background-color: #4CAF50;
+	float:left;
+	height: 80px;
+}
+#nsfw_bar{
+	background-color: #161618; 
+	float:left;
+	height: 80px;
+}
+#nsfl_bar{
+	background-color: #D23C22;
+	float:left;
+	height: 80px;
+}
+#graph{
+	margin-left: -240px;
+	width: 500px;
+	text-align:left;
+	position: absolute;
+	left: 50%;
+	margin-top: 100px;
+}
+#graph div{
+	
+}
+.dygraph-label.dygraph-title{
+	color: #D23C22;
+	margin: 0 auto;
+	font-size: 1.5em;	
+	text-align: center;
+	font-weight: 300;
+	letter-spacing: 3px;
+}
+.dygraph-axis-label.dygraph-axis-label-y{
+	color: #fff;
+	font-weight: 300;
+}
+.dygraph-axis-label.dygraph-axis-label-x{
+	color: #fff;
+	font-weight: 300;
+}
+.dygraph-legend{
+	background: none !important;
+	color: #d23c22;
+}
+h2{
+	color: #fff;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+}
+
+.um0:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #FFFFFF;
+}
+
+.um1:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #E108E9;
+}
+
+.um2:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #5BB91C;
+}
+
+.um3:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #FF9900;
+}
+
+.um4:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #444444;
+}
+
+.um5:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #008FFF;
+}
+
+.um6:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #6C432B;
+}
+
+.um7:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #1cb992;
+}
+
+.um8:after {
+    content: '\25CF';
+    margin-left: 0.4em;
+    color: #1cb992;
+}
+.pr0file{
+	color: #fff;
+}
+.pr0file:hover{
+	color: #D23C22;
+}
+#loading{
+	opacity: 0;
+}
+.spinner{
+	margin:64px auto 32px auto;
+	width:70px;
+	text-align:center;
+}
+.spinner > div{
+	width:18px;
+	height:18px;
+	background-color:#555;
+	border-radius:100%;
+	display:inline-block;
+	-webkit-animation:bouncedelay 1.4s infinite ease-in-out;
+	animation:bouncedelay 1.4s infinite ease-in-out;
+	-webkit-animation-fill-mode:both;animation-fill-mode:both;
+}
+.spinner .bounce1{
+	-webkit-animation-delay:-0.32s;
+	animation-delay:-0.32s;
+}
+.spinner .bounce2{
+	-webkit-animation-delay:-0.16s;
+	animation-delay:-0.16s;
+}
+@-webkit-keyframes bouncedelay{
+	0%, 80%, 100%{-webkit-transform:scale(0.0)}
+	40%{-webkit-transform:scale(1.0)}
+}
+@keyframes bouncedelay{
+	0%, 80%, 100%{transform:scale(0.0)}
+	40%{transform:scale(1.0)}
 }
