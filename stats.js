@@ -69,8 +69,10 @@ window.stats = {
 		$('#tagsinput').val(getUrlParams("search"));
 		var slider_x = (Number(getUrlParams("accuracy")))/50;
 		slider.setValue(slider_x,0);
-		_gaq.push(['_setCustomVar',1,'Tag',getUrlParams("search")]);
-		_gaq.push(['_setCustomVar',1,'Accuracy',getUrlParams("accuracy")]);
+		pageTracker._setCustomVar(1,"Tag",getUrlParams("search"));
+		pageTracker._trackPageview();
+		pageTracker._setCustomVar(1,'Accuracy',getUrlParams("accuracy"));
+		pageTracker._trackPageview();
 		this.fetch();
 		return "converted";
 		
