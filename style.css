@@ -265,6 +265,10 @@ a:hover{
 	float:left;
 	height: 80px;
 }
+.bar p{
+	color: #fff;
+	font-size: 20px;
+}
 #graph{
 	margin-left: -240px;
 	width: 500px;
