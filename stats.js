@@ -98,9 +98,9 @@ window.stats = {
 					$(".bar").not(b).animate({width: "0"},{queue: false});
 					$(b).animate({width: "100%"},{queue: false});
 				},function(){
-						$("#sfw-bar").animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
-						$("#nsfw-bar").animate({width: (a.data.nsfw/a.data.items_number)*100+"%"},{queue: false});
-						$("#nsfl-bar").animate({width: (a.data.nsfl/a.data.items_number)*100+"%"},{queue: false});
+						$("#sfw_bar").animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
+						$("#nsfw_bar").animate({width: (a.data.nsfw/a.data.items_number)*100+"%"},{queue: false});
+						$("#nsfl_bar").animate({width: (a.data.nsfl/a.data.items_number)*100+"%"},{queue: false});
 				});
 				g = new Dygraph(document.getElementById("graph"), this.data.graphData, {
 					showRoller: true,
