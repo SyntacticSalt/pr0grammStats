@@ -94,10 +94,9 @@ window.stats = {
 				$("#nsfl_bar").css("width", (this.data.nsfl/this.data.items_number)*100+"%");
 				width = 0;
 				$(".bar").hover(function(){
-					a = this;
-					$(".bar").not(a).animate({width: "0"},{queue: false});
-					$(a).animate({width: "100%"},{queue: false});
-					
+					b = this;
+					$(".bar").not(b).animate({width: "0"},{queue: false});
+					$(b).animate({width: "100%"},{queue: false});
 				},function(){
 						$("#sfw-bar").animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
 						$("#nsfw-bar").animate({width: (a.data.nsfw/a.data.items_number)*100+"%"},{queue: false});
