@@ -100,6 +100,7 @@ window.stats = {
 					b = this;
 					$(".bar").not(b).animate({width: "0"},{queue: false});
 					$(b).animate({width: "100%"},{queue: false});
+					$(b).children("p").animate({opacity: 1},{queue: false})
 				});
 				$(".bar").mouseleave(function(){
 						$("#sfw_bar").animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
