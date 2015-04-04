@@ -93,11 +93,12 @@ window.stats = {
 				$("#nsfw_bar").css("width", (this.data.nsfw/this.data.items_number)*100+"%");
 				$("#nsfl_bar").css("width", (this.data.nsfl/this.data.items_number)*100+"%");
 				width = 0;
-				$(".bar").hover(function(){
+				$(".bar").mouseenter(function(){
 					b = this;
 					$(".bar").not(b).animate({width: "0"},{queue: false});
 					$(b).animate({width: "100%"},{queue: false});
-				},function(){
+				});
+				$(".bar").mouseleave(function(){
 						$("#sfw_bar").animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
 						$("#nsfw_bar").animate({width: (a.data.nsfw/a.data.items_number)*100+"%"},{queue: false});
 						$("#nsfl_bar").animate({width: (a.data.nsfl/a.data.items_number)*100+"%"},{queue: false});
