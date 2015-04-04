@@ -26,17 +26,17 @@ window.stats = {
 	{
 		items: [],
 		totalTagCount: 0,
-        totalCommentCount: 0,
-        avgCommentCount: 0,
+        	totalCommentCount: 0,
+        	avgCommentCount: 0,
 		avgVote: 0,
 		benisTotal: 0,
-        upTotal: 0,
-        downTotal: 0,
-        promoted: 0,
-        controversy: 0,
-        up: [],
-        down: [],
-        itemIDs: [],
+        	upTotal: 0,
+        	downTotal: 0,
+        	promoted: 0,
+        	controversy: 0,
+        	up: [],
+        	down: [],
+        	itemIDs: [],
 		lastItem_Id: 0,
 		items_number: 0,
 		graphData: [],
@@ -66,7 +66,7 @@ window.stats = {
 		if(getUrlParams("search") == null){ throw "query undefined";}else{
 		this.url = 'http://85.214.140.92/cors/?path=items/get?tags=' + getUrlParams("search") + '&accuracy=' + getUrlParams("accuracy") +'&flags='+flag;
 		$("#loading").css("opacity", 1);
-		$('#tagsinput').val(getUrlParams("search"));
+		$('#tagsinput').val(decodeURI(getUrlParams("search")));
 		var slider_x = (Number(getUrlParams("accuracy")))/50;
 		slider.setValue(slider_x,0);
 		/*pageTracker._setCustomVar(1,"Tag",getUrlParams("search"));
