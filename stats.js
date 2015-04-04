@@ -95,7 +95,7 @@ window.stats = {
 				width = 0;
 				$(".bar").hover(function(){
 					a = this;
-					$(".bar:not("+a+")").animate({width: "0"});
+					$(".bar:not("this"")").animate({width: "0"});
 					$(a).animate({width: "100%"});
 					
 				},function(){
