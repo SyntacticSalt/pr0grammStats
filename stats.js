@@ -100,9 +100,10 @@ window.stats = {
 					b = this;
 					$(".bar").not(b).animate({width: "0"},{queue: false});
 					$(b).animate({width: "100%"},{queue: false});
-					$(b).children("p").animate({opacity: 1},{queue: false})
+					$(b).children("p").animate({opacity: 1},{queue: false});
 				});
 				$(".bar").mouseleave(function(){
+						$(".bar").children("p").animate({opacity: 0},{queue: false});
 						$("#sfw_bar").animate({width: (a.data.sfw/a.data.items_number)*100+"%"},{queue: false});
 						$("#nsfw_bar").animate({width: (a.data.nsfw/a.data.items_number)*100+"%"},{queue: false});
 						$("#nsfl_bar").animate({width: (a.data.nsfl/a.data.items_number)*100+"%"},{queue: false});
