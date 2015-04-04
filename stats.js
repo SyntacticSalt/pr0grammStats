@@ -94,9 +94,9 @@ window.stats = {
 				$("#nsfl_bar").css("width", (this.data.nsfl/this.data.items_number)*100+"%");
 				width = 0;
 				$(".bar").hover(function(){
-					width = $(this).width();
-					$(".bar:not("+this+")").animate({width: "0"});
-					$(this).animate({width: "100%"});
+					a = this;
+					$(".bar:not("+a+")").animate({width: "0"});
+					$(a).animate({width: "100%"});
 					
 				},function(){
 					if($(this).data("flag") == "sfw"){
